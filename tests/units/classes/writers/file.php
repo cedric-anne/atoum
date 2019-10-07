@@ -221,7 +221,7 @@ class file extends atoum\test
     public function testRewindWhenClearing()
     {
         $this
-            ->if($uri = stream_get_meta_data(tmpfile())['uri'])
+            ->if($uri = tempnam(sys_get_temp_dir(), 'foo'))
             ->and($file = new testedClass($uri))
             ->and($file->write('foobar'))
             ->then
